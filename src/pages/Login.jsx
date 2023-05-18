@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
   // const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
   const [errorMessage, setErrorMessage] = useState('')
@@ -46,17 +47,17 @@ const Login = () => {
 
   }
   const redirectHomePage = () => {
-    
+
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-80">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">Login</h2>
+    <div className="flex flex-col items-center form-bg justify-center h-screen">
+      <div className="bg-gradient-to-r from-[#000000cb] to-[#00000048] rounded-lg shadow-lg p-8 lg:w-3/6 w-80">
+        <h2 className="text-3xl font-bold mb-6 text-white">Login</h2>
         <span className='text-red-500'>{errorMessage}</span>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
+            <label className="block text-cyan-200 font-bold mb-2" htmlFor="email">
               Email
             </label>
             <input
@@ -71,7 +72,7 @@ const Login = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
+            <label className="block text-cyan-200 font-bold mb-2" htmlFor="password">
               Password
             </label>
             <input
@@ -93,7 +94,7 @@ const Login = () => {
         </form>
         <div className="flex items-center justify-center mb-4">
           <hr className="w-1/4" />
-          <span className="mx-3">Or Sign In With</span>
+          <span className="mx-3 text-cyan-200">Or Sign In With</span>
           <hr className="w-1/4" />
         </div>
         <div className="grid grid-cols-2 gap-4 mb-4">
@@ -109,7 +110,7 @@ const Login = () => {
           </div>
         </div>
         <div className="text-center">
-          <span className="text-gray-600">Don't have an account?</span>{' '}
+          <span className="text-cyan-200">Don't have an account?</span>{' '}
           <Link to="/register" className="text-blue-500 hover:text-blue-700 font-bold">
             Register here
           </Link>

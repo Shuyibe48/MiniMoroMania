@@ -6,7 +6,6 @@ const HomeLayout = () => {
     return (
         <>
             <Menubar />
-            <h1>sdlfsal;djfl</h1>
             <Outlet />
             <Footer />
         </>
