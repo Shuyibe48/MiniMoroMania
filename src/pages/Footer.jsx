@@ -1,51 +1,63 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
-    return (
-        <footer className="bg-gray-800 text-gray-400 py-8">
-            <div className="container mx-auto flex flex-wrap justify-center">
-                <div className="w-full md:w-1/3 px-4">
-                    <h3 className="font-bold text-lg mb-4">ChefSavant</h3>
-                    <p className="text-sm">
-                        ChefSavant is a food-related website that provides recipes and cooking tips from top chefs around the world.
-                    </p>
-                </div>
-                <div className="w-full md:w-1/3 px-4">
-                    <h3 className="font-bold text-lg mb-4">Links</h3>
-                    <ul className="list-reset">
-                        <li className="py-2">
-                            <Link to="/" className="text-white hover:text-gray-400">Home</Link>
-                        </li>
-                        <li className="py-2">
-                            <Link to="/" className="text-white hover:text-gray-400">Recipes</Link>
-                        </li>
-                        <li className="py-2">
-                            <Link to="/blog" className="text-white hover:text-gray-400">Blog</Link>
-                        </li>
-                        <li className="py-2">
-                            <Link to="/contact" className="text-white hover:text-gray-400">Contact Us</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="w-full md:w-1/3 px-4">
-                    <h3 className="font-bold text-lg mb-4">Subscribe to Our Newsletter</h3>
-                    <form>
-                        <div className="flex items-center">
-                            <input type="email" placeholder="Enter your email" className="bg-gray-700 focus:outline-none focus:shadow-outline border border-gray-600 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" />
-                            <button type="submit" className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 ml-4 rounded">
-                                Subscribe
-                            </button>
-                        </div>
-                    </form>
-                </div>
+  return (
+    <footer className="bg-gray-900 text-white">
+      <div className="container mx-auto py-8">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center">
+            <img src="https://www.tailorbrands.com/wp-content/uploads/2020/07/mcdonalds-logo.jpg" alt="MiniMotorMania" className="w-8 h-8 mr-2" />
+            <span className="text-xl font-bold">MiniMotorMania</span>
+          </div>
+          <div className="flex space-x-4">
+            <a href="https://www.facebook.com/minimotormania">
+              <FaFacebook className="text-white hover:text-blue-500" />
+            </a>
+            <a href="https://www.twitter.com/minimotormania">
+              <FaTwitter className="text-white hover:text-blue-400" />
+            </a>
+            <a href="https://www.instagram.com/minimotormania">
+              <FaInstagram className="text-white hover:text-pink-500" />
+            </a>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <p className="text-gray-400">
+              Address: 1234 Example Street, City, Country
+              <br />
+              Email: info@minimotormania.com
+              <br />
+              Phone: +1 234 567 890
+            </p>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+            <div className="flex space-x-4">
+              <a href="https://www.facebook.com/minimotormania">
+                <FaFacebook className="text-white hover:text-blue-500" />
+              </a>
+              <a href="https://www.twitter.com/minimotormania">
+                <FaTwitter className="text-white hover:text-blue-400" />
+              </a>
+              <a href="https://www.instagram.com/minimotormania">
+                <FaInstagram className="text-white hover:text-pink-500" />
+              </a>
             </div>
-            <div className="container mx-auto mt-8 text-center">
-                <span className="text-gray-400">
-                    © 2023 ChefSavant. All rights reserved.
-                </span>
-            </div>
-        </footer>
-    );
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-800 py-4">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-400">
+            &copy; {new Date().getFullYear()} MiniMotorMania. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
