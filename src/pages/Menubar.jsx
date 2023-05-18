@@ -19,7 +19,7 @@ const Menubar = () => {
             <div className=" text-black mr-6">
                 <Link className='flex items-center flex-shrink-0' to="/">
                     <img src="https://www.tailorbrands.com/wp-content/uploads/2020/07/mcdonalds-logo.jpg" alt="MiniMotorMania" className="w-8 h-8 mr-2" />
-                    <span className="font-semibold text-xl tracking-tight">MiniMotorMania</span>
+                    <span className="font-bold text-xl tracking-tight">MiniMotorMania</span>
                 </Link>
             </div>
             <div className="block lg:hidden">
