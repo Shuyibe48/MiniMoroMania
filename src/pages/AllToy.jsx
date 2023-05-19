@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const toyData = [
     {
@@ -106,9 +107,11 @@ const AllToy = () => {
                                     <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">${toy.price}</td>
                                     <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.quantity}</td>
                                     <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">
-                                        <button className="px-4 py-2 bg-[#ffc800] text-black font-bold rounded-md">
-                                            View Details
-                                        </button>
+                                        <Link to='/toydetails'>
+                                            <button className="px-4 py-2 bg-[#ffc800] text-black font-bold rounded-md">
+                                                View Details
+                                            </button>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}
