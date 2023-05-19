@@ -45,7 +45,7 @@ const AddToy = () => {
     return (
         <div className='form-bg py-12'>
             <div className="max-w-lg mx-auto p-4">
-                <h2 className="text-4xl font-bold mb-4 text-[#ffc800]">Add A Toy</h2>
+                <h2 className="text-4xl font-bold mb-6 text-[#ffc800]">Add A Toy</h2>
                 <form onSubmit={handleFormSubmit}>
                     <div className="mb-4">
                         <label htmlFor="pictureUrl" className="block mb-2 text-[#ffc800] font-bold">
