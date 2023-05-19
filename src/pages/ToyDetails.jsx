@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ToyDetails = () => {
     return (
         <div className='form-bg'>
@@ -12,11 +10,11 @@ const ToyDetails = () => {
                     />
                     <div className="py-4 px-6">
                         <h2 className="text-4xl mb-2 font-bold text-[#8b6b05]">Toy Name</h2>
-                        <p className="text-gray-600 text-2xl text-[#8b6b05]"><span className=' font-bold'>Seller:</span> John Doe</p>
-                        <p className="text-gray-600 text-2xl text-[#8b6b05]"><span className=' font-bold'>Seller Email:</span> johndoe@example.com</p>
-                        <p className="text-gray-600 text-2xl text-[#8b6b05]"><span className=' font-bold'>Price:</span> $29.99</p>
-                        <p className="text-gray-600 text-2xl text-[#8b6b05]"><span className=' font-bold'>Rating:</span> 4.5</p>
-                        <p className="text-gray-600 text-2xl text-[#8b6b05]"><span className=' font-bold'>Available Quantity:</span> 5</p>
+                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Seller:</span> John Doe</p>
+                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Seller Email:</span> johndoe@example.com</p>
+                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Price:</span> $29.99</p>
+                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Rating:</span> 4.5</p>
+                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Available Quantity:</span> 5</p>
                         <p className="text-[#8b6b05] text-2xl mt-4">
                             <span className='font-bold'>Detail Description: </span>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla blandit mauris, non volutpat nisi. Sed vulputate venenatis massa, at tincidunt tellus ultrices vitae. Nulla vitae bibendum nisl.

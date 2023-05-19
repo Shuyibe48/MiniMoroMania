@@ -52,7 +52,7 @@ const Menubar = () => {
                                     </div>
                                 )}
                             </div>
-                            <button className="ml-4 px-4 py-2 border rounded text-gray-200 border-gray-400 hover:text-black hover:border-white" onClick={logOut}>
+                            <button className="ml-4 px-4 py-2 border rounded text-[#8b6b05] border-[#8b6b05] hover:text-black hover:border-white" onClick={logOut}>
                                 Log Out
                             </button>
                         </>
