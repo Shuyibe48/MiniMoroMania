@@ -8,3 +8,10 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.profile-name{
+    display: none;
+}
+.profile-picture:hover .profile-name{
+    display: block;
+}

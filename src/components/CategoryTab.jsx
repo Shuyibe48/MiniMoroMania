@@ -1,20 +1,45 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import SportsCar from './SportsCar';
+import MiniFireTruck from './MiniFireTruck';
+import MiniPoliceCar from './MiniPoliceCar';
 
 const CategoryTab = () => (
-  <Tabs>
-    <TabList>
-      <Tab>Title 1</Tab>
-      <Tab>Title 2</Tab>
-    </TabList>
+  <div className='container mx-auto'>
+    <Tabs>
+      <TabList>
+        <Tab><button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          All Car
+        </button>
+        </Tab>
+        <Tab><button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          Sports Car
+        </button>
+        </Tab>
+        <Tab><button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          Mini Fire Truck
+        </button>
+        </Tab>
+        <Tab><button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          Mini Police Car
+        </button>
+        </Tab>
+      </TabList>
 
-    <TabPanel>
-      <h2>Any content 1</h2>
-    </TabPanel>
-    <TabPanel>
-      <h2>Any content 2</h2>
-    </TabPanel>
-  </Tabs>
+      <TabPanel>
+        <h1>All cars here</h1>
+      </TabPanel>
+      <TabPanel>
+        <SportsCar />
+      </TabPanel>
+      <TabPanel>
+        <MiniFireTruck />
+      </TabPanel>
+      <TabPanel>
+        <MiniPoliceCar />
+      </TabPanel>
+    </Tabs>
+  </div>
 );
 
 export default CategoryTab

@@ -4,7 +4,7 @@ import { FaUser } from 'react-icons/fa';
 
 const Menubar = () => {
     // const { user, logOut } = useContext(AuthContext)
-    const user = null
+    const user = { displayName: 'Fahim Ahmed', photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1GDhuZt0-WgEgomt_NnaqvMwbQC8hH8JJDQ&usqp=CAU' }
 
     const location = useLocation();
 
@@ -13,6 +13,8 @@ const Menubar = () => {
     const handleMenuClick = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const logOut = () => { }
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-[#ffc800] p-6">
@@ -31,10 +33,17 @@ const Menubar = () => {
                 <div className="text-sm lg:flex ml-auto">
                     <Link className={`mr-4 ${location.pathname === '/' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`} to="/">Home</Link>
                     <Link className={`mr-4 ${location.pathname === '/blog' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`} to="/blog">Blog</Link>
+                    <Link className={`mr-4 ${location.pathname === '/blog' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`} to="/blog">All Toys</Link>
                 </div>
                 <div className="flex items-center">
                     {user ? (
                         <>
+                            <Link to="/register" className={`mr-4 ${location.pathname === '/register' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`}>
+                                My Toys
+                            </Link>
+                            <Link to="/register" className={`mr-4 ${location.pathname === '/register' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`}>
+                                Add A Toy
+                            </Link>
                             <div className="relative profile-picture">
                                 <img className="h-8 w-8 rounded-full cursor-pointer" src={user?.photoURL} alt={user.displayName || 'Profile picture'} />
                                 {user.displayName && (
