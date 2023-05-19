@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import SportsCar from './SportsCar';
 import MiniFireTruck from './MiniFireTruck';
 import MiniPoliceCar from './MiniPoliceCar';
+import AllCar from './AllCar';
 
 const CategoryTab = () => (
   <div className='container mx-auto'>
@@ -27,7 +28,7 @@ const CategoryTab = () => (
       </TabList>
 
       <TabPanel>
-        <h1>All cars here</h1>
+        <AllCar />
       </TabPanel>
       <TabPanel>
         <SportsCar />

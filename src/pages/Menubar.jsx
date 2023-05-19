@@ -33,15 +33,15 @@ const Menubar = () => {
                 <div className="text-sm lg:flex ml-auto">
                     <Link className={`mr-4 ${location.pathname === '/' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`} to="/">Home</Link>
                     <Link className={`mr-4 ${location.pathname === '/blog' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`} to="/blog">Blog</Link>
-                    <Link className={`mr-4 ${location.pathname === '/blog' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`} to="/blog">All Toys</Link>
+                    <Link className={`mr-4 ${location.pathname === '/alltoy' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`} to="/alltoy">All Toys</Link>
                 </div>
                 <div className="flex items-center">
                     {user ? (
                         <>
-                            <Link to="/register" className={`mr-4 ${location.pathname === '/register' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`}>
+                            <Link to="/mytoy" className={`mr-4 ${location.pathname === '/mytoy' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`}>
                                 My Toys
                             </Link>
-                            <Link to="/register" className={`mr-4 ${location.pathname === '/register' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`}>
+                            <Link to="/addtoy" className={`mr-4 ${location.pathname === '/addtoy' ? 'text-gray-500 font-bold' : 'text-black hover:text-gray-500'}`}>
                                 Add A Toy
                             </Link>
                             <div className="relative profile-picture">
