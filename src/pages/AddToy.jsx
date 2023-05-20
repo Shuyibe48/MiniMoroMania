@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
 
 const AddToy = () => {
-    const [pictureUrl, setPictureUrl] = useState('');
-    const [toyName, setToyName] = useState('');
-    const [sellerName, setSellerName] = useState('Unknown');
-    const [sellerEmail, setSellerEmail] = useState('');
-    const [toySubcategory, setToySubcategory] = useState('');
+    const [toy_image, setToy_image] = useState('');
+    const [toy_name, setToyName] = useState('');
+    const [seller_name, setSellerName] = useState('Unknown');
+    const [seller_email, setSellerEmail] = useState('');
+    const [sub_category, setToySubcategory] = useState('');
     const [price, setPrice] = useState('');
-    const [rating, setRating] = useState('');
-    const [quantity, setQuantity] = useState('');
+    const [ratings, setRating] = useState('');
+    const [available_quantity, setQuantity] = useState('');
     const [description, setDescription] = useState('');
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        // Perform your desired action with the form data
+        // form data
         const toyData = {
-            pictureUrl,
-            toyName,
-            sellerName,
-            sellerEmail,
-            toySubcategory,
+            toy_image,
+            toy_name,
+            seller_name,
+            seller_email,
+            sub_category,
             price,
-            rating,
-            quantity,
+            ratings,
+            available_quantity,
             description,
         };
 
         // Reset the form fields
-        setPictureUrl('');
+        setToy_image('');
         setToyName('');
         setSellerName('Unknown');
         setSellerEmail('');
@@ -38,8 +38,15 @@ const AddToy = () => {
         setQuantity('');
         setDescription('');
 
-        // You can do something with the toyData, like sending it to an API or storing it in a database
-        console.log(toyData);
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toyData)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
     };
 
     return (
@@ -48,66 +55,66 @@ const AddToy = () => {
                 <h2 className="text-4xl font-bold mb-6 text-[#ffc800]">Add A Toy</h2>
                 <form onSubmit={handleFormSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="pictureUrl" className="block mb-2 text-[#ffc800] font-bold">
+                        <label htmlFor="toy_image" className="block mb-2 text-[#ffc800] font-bold">
                             Picture URL of the toy:
                         </label>
                         <input
                             placeholder='Picture URL of the toy'
                             type="text"
-                            id="pictureUrl"
-                            value={pictureUrl}
-                            onChange={(e) => setPictureUrl(e.target.value)}
+                            id="toy_image"
+                            value={toy_image}
+                            onChange={(e) => setToy_image(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="toyName" className="block mb-2 text-[#ffc800] font-bold">
+                        <label htmlFor="toy_name" className="block mb-2 text-[#ffc800] font-bold">
                             Toy Name:
                         </label>
                         <input
                             placeholder='Toy Name'
                             type="text"
-                            id="toyName"
-                            value={toyName}
+                            id="toy_name"
+                            value={toy_name}
                             onChange={(e) => setToyName(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="sellerName" className="block mb-2 text-[#ffc800] font-bold">
+                        <label htmlFor="seller_name" className="block mb-2 text-[#ffc800] font-bold">
                             Seller Name:
                         </label>
                         <input
                             placeholder='Seller Name'
                             type="text"
-                            id="sellerName"
-                            value={sellerName}
+                            id="seller_name"
+                            value={seller_name}
                             onChange={(e) => setSellerName(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="sellerEmail" className="block mb-2 text-[#ffc800] font-bold">
+                        <label htmlFor="seller_email" className="block mb-2 text-[#ffc800] font-bold">
                             Seller Email:
                         </label>
                         <input
                             placeholder='Seller Email'
                             type="email"
-                            id="sellerEmail"
-                            value={sellerEmail}
+                            id="seller_email"
+                            value={seller_email}
                             onChange={(e) => setSellerEmail(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="toySubcategory" className="block mb-2 text-[#ffc800] font-bold">
+                        <label htmlFor="sub_category" className="block mb-2 text-[#ffc800] font-bold">
                             Toy Sub-category:
                         </label>
                         <input
                             placeholder='Toy Sub-category'
                             type="text"
-                            id="toySubcategory"
-                            value={toySubcategory}
+                            id="sub_category"
+                            value={sub_category}
                             onChange={(e) => setToySubcategory(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
@@ -126,27 +133,27 @@ const AddToy = () => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="rating" className="block mb-2 text-[#ffc800] font-bold">
+                        <label htmlFor="ratings" className="block mb-2 text-[#ffc800] font-bold">
                             Rating:
                         </label>
                         <input
                             placeholder='Rating'
                             type="text"
-                            id="rating"
-                            value={rating}
+                            id="ratings"
+                            value={ratings}
                             onChange={(e) => setRating(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="quantity" className="block mb-2 text-[#ffc800] font-bold">
-                            Available quantity:
+                        <label htmlFor="available_quantity" className="block mb-2 text-[#ffc800] font-bold">
+                            Available available_quantity:
                         </label>
                         <input
-                            placeholder='Available quantity'
+                            placeholder='Available available_quantity'
                             type="text"
-                            id="quantity"
-                            value={quantity}
+                            id="available_quantity"
+                            value={available_quantity}
                             onChange={(e) => setQuantity(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />

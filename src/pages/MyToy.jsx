@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const MyToy = () => {
-    const [toys, setToys] = useState([
-        {
-            id: 1,
-            price: 10,
-            quantity: 5,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-        {
-            id: 2,
-            price: 15,
-            quantity: 8,
-            description: 'Pellentesque nec justo auctor, pellentesque nisl eget, venenatis sem.',
-        },
-        // Add more toy objects as needed
-    ]);
+    const [toys, setToys] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/toys?email=amelia@example.com`)
+        .then(res => res.json())
+        .then(data => setToys(data))
+    }, [])
+
+    console.log(toys);
 
     const handleDeleteToy = (id) => {
         if (window.confirm('Are you sure you want to delete this toy?')) {
-            const updatedToys = toys.filter((toy) => toy.id !== id);
+            const updatedToys = toys.filter((toy) => toy._id !== id);
             setToys(updatedToys);
         }
     };
@@ -27,16 +21,21 @@ const MyToy = () => {
     return (
         <div>
             {toys.map((toy) => (
-                <div key={toy.id} className="bg-white p-4 rounded shadow mb-4">
-                    <h2 className="text-xl font-bold">Toy Information</h2>
-                    <p className="text-gray-500">Price: {toy.price}</p>
-                    <p className="text-gray-500">Available Quantity: {toy.quantity}</p>
-                    <p className="text-gray-500">Description: {toy.description}</p>
+                <div key={toy._id} className="bg-white p-4 rounded shadow mb-4">
+                    <img className='w-36' src={toy.toy_image} alt="" />
+                    <h2 className="text-xl font-bold">{toy.toy_name}</h2>
+                    <p className="text-gray-500 font-semibold">Price: {toy.price}$</p>
+                    <p className="text-gray-500 font-semibold">Ratings: {toy.ratings}</p>
+                    <p className="text-gray-500 font-semibold">Sub Category: {toy.sub_category}</p>
+                    <p className="text-gray-500 font-semibold">Seller: {toy.seller_name}</p>
+                    <p className="text-gray-500 font-semibold">Seller Email: {toy.seller_email}</p>
+                    <p className="text-gray-500 font-semibold">Available Quantity: {toy.available_quantity}</p>
+                    <p className="text-gray-500 font-semibold">Description: {toy.description}</p>
                     <div className="flex justify-end mt-4">
-                        <button className="px-4 py-2 bg-blue-500 text-white rounded mr-2">Update</button>
+                        <button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-semibold mr-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
                         <button
-                            className="px-4 py-2 bg-red-500 text-white rounded"
-                            onClick={() => handleDeleteToy(toy.id)}
+                            className="px-4 py-2 font-semibold bg-red-500 text-white rounded"
+                            onClick={() => handleDeleteToy(toy._id)}
                         >
                             Delete
                         </button>
