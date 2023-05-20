@@ -7,9 +7,6 @@ const Login = () => {
   const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
   const [errorMessage, setErrorMessage] = useState('')
 
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-
   const navigate = useNavigate()
   const location = useLocation()
 
