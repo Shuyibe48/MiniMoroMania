@@ -11,13 +11,13 @@ const githubProvider = new GithubAuthProvider()
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [chefs, setChefs] = useState([])
+    // const [chefs, setChefs] = useState([])
 
-    useEffect(() => {
-        fetch('https://chef-savant-server-shuyibe48.vercel.app/chefinfo')
-        .then(res => res.json())
-        .then(data => setChefs(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://chef-savant-server-shuyibe48.vercel.app/chefinfo')
+    //     .then(res => res.json())
+    //     .then(data => setChefs(data))
+    // }, [])
 
 
     const createUser = (email, password) => {
@@ -69,7 +69,6 @@ const AuthProvider = ({ children }) => {
         updateUser,
         logOut,
         loading,
-        chefs
     }
 
     return (

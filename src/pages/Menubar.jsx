@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Menubar = () => {
-    // const { user, logOut } = useContext(AuthContext)
-    const user = { displayName: 'Fahim Ahmed', photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1GDhuZt0-WgEgomt_NnaqvMwbQC8hH8JJDQ&usqp=CAU' }
+    const { user, logOut } = useContext(AuthContext)
 
     const location = useLocation();
 
@@ -14,7 +14,6 @@ const Menubar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const logOut = () => { }
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-[#ffc800] p-6">

@@ -1,53 +1,41 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const Login = () => {
-  // const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
+  const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
   const [errorMessage, setErrorMessage] = useState('')
 
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
 
-  // const navigate = useNavigate()
-  // const location = useLocation()
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  // const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || '/'
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  //   const form = event.target
-  //   const email = form.email.value
-  //   const password = form.password.value
+    const form = event.target
+    const email = form.email.value
+    const password = form.password.value
 
-  //   form.reset()
+    form.reset()
 
-  //   signIn(email, password)
-  //     .then(() => {
-  //       setErrorMessage('')
-  //       navigate(from)
-  //     })
-  //     .catch(error => {
-  //       setErrorMessage(error.message && 'Invalid email or password!')
-  //     })
-  // };
+    signIn(email, password)
+      .then(() => {
+        setErrorMessage('')
+        navigate(from)
+      })
+      .catch(error => {
+        setErrorMessage(error.message && 'Invalid email or password!')
+      })
+  };
 
-  // const redirectHomePage = () => {
-  //   navigate('/')
-  // }
-
-  const signInWithGoogle = () => {
-
-  }
-  const signInWithGithub = () => {
-
-  }
-  const handleSubmit = () => {
-
-  }
   const redirectHomePage = () => {
-
+    navigate('/')
   }
 
   return (
