@@ -1,29 +1,47 @@
+import { useLoaderData } from "react-router-dom";
+
 const ToyDetails = () => {
+    const toy = useLoaderData()
+    const {
+        toy_image,
+        toy_name,
+        seller_name,
+        seller_email,
+        price,
+        ratings,
+        available_quantity,
+        description,
+    } = toy;
+
+
     return (
-        <div className='form-bg py-28'>
-            <div className="container mx-auto px-4 py-8">
-                <div className=" mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img
-                        className="w-full h-64 object-cover object-center"
-                        src="https://images.unsplash.com/photo-1469037784699-75dcff1cbf75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
-                        alt="Toy"
-                    />
-                    <div className="py-4 px-6">
-                        <h2 className="text-4xl mb-2 font-bold text-[#8b6b05]">Toy Name</h2>
-                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Seller:</span> John Doe</p>
-                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Seller Email:</span> johndoe@example.com</p>
-                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Price:</span> $29.99</p>
-                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Rating:</span> 4.5</p>
-                        <p className="text-2xl text-[#8b6b05]"><span className=' font-bold'>Available Quantity:</span> 5</p>
-                        <p className="text-[#8b6b05] text-2xl mt-4">
-                            <span className='font-bold'>Detail Description: </span>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla blandit mauris, non volutpat nisi. Sed vulputate venenatis massa, at tincidunt tellus ultrices vitae. Nulla vitae bibendum nisl.
-                        </p>
-                    </div>
+        <div className="flex flex-col items-center p-8">
+            <img src={toy_image} alt={toy_name} className="w-64 h-64 mb-4" />
+            <h2 className="text-2xl font-bold mb-2">{toy_name}</h2>
+            <p className="text-gray-500 mb-2 font-bold">Seller: {seller_name}</p>
+            <p className="text-gray-500 mb-2 font-bold">Email: {seller_email}</p>
+            <p className="text-green-500 font-bold text-xl mb-2">${price}</p>
+            <div className="flex items-center mb-2">
+                <span className="mr-1 font-bold">Rating: ({ratings})</span>
+                <div className="flex">
+                    {Array.from({ length: ratings }).map((_, index) => (
+                        <svg
+                            key={index}
+                            className="w-5 h-5 text-yellow-500 fill-current"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M10 2.667l2.76 5.67 6.22.9-4.51 4.39 1.07 6.21L10 16.6l-5.54 2.92 1.07-6.21L1.02 9.24l6.22-.9L10 2.67zm0-1.334L7.33 6.203l-5.67.823 4.096 4-1.029 5.982L10 15.536l5.573 2.872-1.029-5.982 4.096-4-5.67-.823L10 1.333z"
+                            />
+                        </svg>
+                    ))}
                 </div>
             </div>
+            <p className="text-gray-500 mb-2 font-bold">Available Quantity: {available_quantity}</p>
+            <p className="text-gray-700 font-bold">Details: {description}</p>
         </div>
     );
 };
 
 export default ToyDetails;
+
