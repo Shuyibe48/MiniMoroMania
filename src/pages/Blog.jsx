@@ -1,68 +1,31 @@
-import React from 'react';
-import { FaUser } from 'react-icons/fa';
-// import logo from './logo.png';
-
 const Blog = () => {
-    const loggedIn = false
-    const username = null
-
-  const renderProfile = () => {
-    if (loggedIn) {
-      return (
-        <div className="flex items-center">
-          <div className="relative">
-            <img
-              src="/path/to/profile-picture.png"
-              alt="Profile Picture"
-              className="w-8 h-8 rounded-full"
-            />
-            <span className="absolute text-xs bg-gray-800 text-white px-2 py-1 rounded-md bottom-0 right-0 transform translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              {username}
-            </span>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <a href="/login" className="flex items-center">
-          <FaUser className="mr-1" />
-          Login
-        </a>
-      );
-    }
-  };
-
   return (
-    <nav className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white">
-      <div className="container mx-auto flex items-center justify-between py-4">
-        <div className="flex items-center">
-          <img src="https://www.tailorbrands.com/wp-content/uploads/2020/07/mcdonalds-logo.jpg" alt="Website Logo" className="w-8 h-8 mr-2" />
-          <span className="text-xl font-bold">MiniMotorMania</span>
-        </div>
-        <ul className="flex space-x-4">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/toys">All Toys</a>
-          </li>
-          {loggedIn && (
-            <>
-              <li>
-                <a href="/my-toys">My Toys</a>
-              </li>
-              <li>
-                <a href="/add-toy">Add A Toy</a>
-              </li>
-            </>
-          )}
-          <li>
-            <a href="/blogs">Blogs</a>
-          </li>
-          <li>{renderProfile()}</li>
-        </ul>
+    <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 lg:p-10 blogs">
+      <h2 className="text-4xl font-bold mb-8 text-center">Blog</h2>
+      <div className="mb-6 md:mb-8 lg:mb-10">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">Tell us the differences between uncontrolled and controlled components.</h2>
+        <p className="text-base md:text-lg lg:text-xl text-gray-500">In React, there are two types of form components: controlled and uncontrolled.
+          <br />
+          <span className='font-bold'>1. Uncontrolled components: </span>
+          Uncontrolled components are traditional HTML form elements like input, textarea, and select. These components store their own state internally and the state can only be accessed using a DOM API such as getElementById or querySelector. When an uncontrolled component is mounted, its state is initialized to the default value specified in the value or defaultValue attribute.
+          <br />
+          <span className='font-bold'>2. Controlled components: </span>
+          Controlled components are React components that store their state in the parent component's state. This means that the state is passed to the child component via props, and any changes to the state are made through callbacks passed from the parent component. When a controlled component is mounted, its state is initialized to the value passed in the parent component's state.
+        </p>
       </div>
-    </nav>
+      <div className="mb-6 md:mb-8 lg:mb-10">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">How to validate React props using PropTypes?</h2>
+        <p className="text-base md:text-lg lg:text-xl text-gray-500">React's built-in feature, PropTypes, validates the type and shape of props that a component expects to receive. It's imported from the 'prop-types' package and used to define the PropTypes for each prop. PropTypes API specifies the expected type and shape of each prop to catch errors early in the development process.</p>
+      </div>
+      <div className="mb-6 md:mb-8 lg:mb-10">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">Tell us the difference between node js and express js.</h2>
+        <p className="text-base md:text-lg lg:text-xl text-gray-500">Node.js is a runtime environment that allows JavaScript to run outside the browser, while Express.js is a web framework built on top of Node.js. Node.js provides the core functionality for building server-side applications, while Express.js simplifies the process of building web applications by providing a range of features and utilities.</p>
+      </div>
+      <div>
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">What is a custom hook, and why will you create a custom hook?</h2>
+        <p className="text-base md:text-lg lg:text-xl text-gray-500">In React, a custom hook is a reusable function that encapsulates and shares stateful logic between multiple components. Custom hooks can be created to extract and reuse common logic such as data fetching, managing form state, or performing complex calculations. By creating a custom hook, you can simplify the code in your components, make your code more modular and reusable, and reduce code duplication. Custom hooks can be used to abstract away complex or repetitive tasks, making your code more readable and maintainable. Overall, custom hooks provide a powerful tool for creating scalable and reusable React applications.</p>
+      </div>
+    </div>
   );
 };
 
