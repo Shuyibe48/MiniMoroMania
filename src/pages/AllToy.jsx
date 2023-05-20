@@ -1,67 +1,10 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
-const toyData = [
-    {
-        id: 1,
-        seller: 'John Doe',
-        toyName: 'Red Sports Car',
-        subCategory: 'Sports Cars',
-        price: 29.99,
-        quantity: 5,
-    },
-    {
-        id: 1,
-        seller: 'John Doe',
-        toyName: 'Red Sports Car',
-        subCategory: 'Sports Cars',
-        price: 29.99,
-        quantity: 5,
-    },
-    {
-        id: 1,
-        seller: 'John Doe',
-        toyName: 'Red Sports Car',
-        subCategory: 'Sports Cars',
-        price: 29.99,
-        quantity: 5,
-    },
-    {
-        id: 1,
-        seller: 'John Doe',
-        toyName: 'Red Sports Car',
-        subCategory: 'Sports Cars',
-        price: 29.99,
-        quantity: 5,
-    },
-    {
-        id: 1,
-        seller: 'John Doe',
-        toyName: 'Yellow Sports Car',
-        subCategory: 'Sports Cars',
-        price: 29.99,
-        quantity: 5,
-    },
-    {
-        id: 1,
-        seller: 'John Doe',
-        toyName: 'Blue Sports Car',
-        subCategory: 'Sports Cars',
-        price: 29.99,
-        quantity: 5,
-    },
-    {
-        id: 1,
-        seller: 'John Doe',
-        toyName: 'Green Sports Car',
-        subCategory: 'Sports Cars',
-        price: 29.99,
-        quantity: 5,
-    },
-    // ... Add more toy data
-];
 
 const AllToy = () => {
+    const {toyData} = useContext(AuthContext)
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = (event) => {
@@ -69,7 +12,9 @@ const AllToy = () => {
     };
 
     const filteredToys = toyData.filter((toy) =>
-        toy.toyName.toLowerCase().includes(searchTerm.toLowerCase())
+        toy.
+        toy_name
+        .toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
@@ -98,14 +43,14 @@ const AllToy = () => {
                         </thead>
                         <tbody className='bg-black'>
                             {filteredToys.map((toy) => (
-                                <tr key={toy.id}>
+                                <tr key={toy._id}>
                                     <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">
-                                        {toy.seller ? toy.seller : 'Unknown'}
+                                        {toy.seller_name ? toy.seller_name : 'Unknown'}
                                     </td>
-                                    <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.toyName}</td>
-                                    <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.subCategory}</td>
+                                    <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.toy_name}</td>
+                                    <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.sub_category}</td>
                                     <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">${toy.price}</td>
-                                    <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.quantity}</td>
+                                    <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.available_quantity}</td>
                                     <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">
                                         <Link to='/toydetails'>
                                             <button className="px-4 py-2 bg-[#ffc800] text-black font-bold rounded-md">
