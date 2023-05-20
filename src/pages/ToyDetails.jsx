@@ -1,6 +1,6 @@
 const ToyDetails = () => {
     return (
-        <div className='form-bg'>
+        <div className='form-bg py-28'>
             <div className="container mx-auto px-4 py-8">
                 <div className=" mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
                     <img

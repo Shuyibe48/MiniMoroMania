@@ -41,7 +41,7 @@ const Register = () => {
       <div className="md:w-full lg:w-3/6 mx-auto">
         <form onSubmit={handleSubmit} className="bg-gradient-to-r from-[#000000cb] to-[#00000048] shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <h2 className="text-2xl text-[#ffc800] font-bold text-center mb-4">Register</h2>
-          <span className="text-red-500 bg-[#ffc800]">{errorMessage}</span>
+          <span className="text-red-500 font-bold">{errorMessage}</span>
           <div className="mb-4">
             <label className="text-[#ffc800] block text-cyan-100 font-bold mb-2" htmlFor="name">
               Name

@@ -27,7 +27,7 @@ const Login = () => {
         navigate(from)
       })
       .catch(error => {
-        setErrorMessage(error.message && 'Invalid email or password!')
+        setErrorMessage(error.message && 'Invalid email or password!!!')
       })
   };
 
@@ -39,7 +39,7 @@ const Login = () => {
     <div className="flex flex-col items-center form-bg justify-center h-screen">
       <div className="bg-gradient-to-r from-[#000000cb] to-[#00000048] rounded-lg shadow-lg p-8 lg:w-3/6 w-80">
         <h2 className="text-3xl font-bold mb-6 text-[#ffc800]">Login</h2>
-        <span className='text-red-500'>{errorMessage}</span>
+        <span className='text-red-500 font-bold'>{errorMessage}</span>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-[#ffc800] font-bold mb-2" htmlFor="email">
