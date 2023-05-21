@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
-import AuthProvider from '../provider/AuthProvider';
 
 
 const AllToy = () => {
@@ -9,7 +8,6 @@ const AllToy = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(0)
     const { totalToys } = useLoaderData()
-    const { user } = useContext(AuthProvider)
 
     const itemsPerPage = 20
     const totalPage = Math.ceil(totalToys / itemsPerPage)
@@ -77,7 +75,6 @@ const AllToy = () => {
                                         <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">
                                             <Link to={`/toydetails/${toy._id}`}>
                                                 <button
-                                                    onClick={() => !user && window.alert('You have to log in first to view details')}
                                                     className="px-4 py-2 bg-[#ffc800] text-black font-bold rounded-md">
                                                     View Details
                                                 </button>
