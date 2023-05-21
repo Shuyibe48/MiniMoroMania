@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const AddToy = () => {
+    const { user } = useContext(AuthContext)
     const [toy_image, setToy_image] = useState('');
     const [toy_name, setToyName] = useState('');
-    const [seller_name, setSellerName] = useState('Unknown');
-    const [seller_email, setSellerEmail] = useState('');
+    const [seller_name, setSellerName] = useState(user.displayName);
+    const [seller_email, setSellerEmail] = useState(user.email);
     const [sub_category, setToySubcategory] = useState('');
     const [price, setPrice] = useState('');
     const [ratings, setRating] = useState('');
     const [available_quantity, setQuantity] = useState('');
     const [description, setDescription] = useState('');
+
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -30,8 +33,8 @@ const AddToy = () => {
         // Reset the form fields
         setToy_image('');
         setToyName('');
-        setSellerName('Unknown');
-        setSellerEmail('');
+        setSellerName(user.displayName);
+        setSellerEmail(user.email);
         setToySubcategory('');
         setPrice('');
         setRating('');
@@ -45,8 +48,8 @@ const AddToy = () => {
             },
             body: JSON.stringify(toyData)
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => console.log(data))
     };
 
     return (
@@ -85,7 +88,7 @@ const AddToy = () => {
                             Seller Name:
                         </label>
                         <input
-                            placeholder='Seller Name'
+                            disabled
                             type="text"
                             id="seller_name"
                             value={seller_name}
@@ -98,7 +101,7 @@ const AddToy = () => {
                             Seller Email:
                         </label>
                         <input
-                            placeholder='Seller Email'
+                            disabled
                             type="email"
                             id="seller_email"
                             value={seller_email}
@@ -106,18 +109,14 @@ const AddToy = () => {
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="sub_category" className="block mb-2 text-[#ffc800] font-bold">
-                            Toy Sub-category:
-                        </label>
-                        <input
-                            placeholder='Toy Sub-category'
-                            type="text"
-                            id="sub_category"
-                            value={sub_category}
-                            onChange={(e) => setToySubcategory(e.target.value)}
-                            className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
-                        />
+                    <div className='mb-4'>
+                        <label className="block mb-2 text-[#ffc800] font-bold" htmlFor="dropdown">Toy Sub-category:</label>
+                        <select onChange={(e) => setToySubcategory(e.target.value)} className='w-full p-2 rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100' id="dropdown">
+                            <option className='bg-black' value="">Select an option</option>
+                            <option className='bg-black' value="Sports Car">Sports Car</option>
+                            <option className='bg-black' value="Mini Fire Truck">Mini Fire Truck</option>
+                            <option className='bg-black' value="Mini Police Car">Mini Police Car</option>
+                        </select>
                     </div>
                     <div className="mb-4">
                         <label htmlFor="price" className="block mb-2 text-[#ffc800] font-bold">

@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const MyToy = () => {
     const [toys, setToys] = useState([])
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?email=amelia@example.com`)
-        .then(res => res.json())
-        .then(data => setToys(data))
+        fetch(`http://localhost:5000/toys?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setToys(data))
     }, [])
 
-    console.log(toys);
-
     const handleDeleteToy = (id) => {
-        if (window.confirm('Are you sure you want to delete this toy?')) {
+        const proceed = window.confirm('Are you sure you want to delete this toy?') 
+        if (proceed) {
+
+            fetch(`http://localhost:5000/toys/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+
             const updatedToys = toys.filter((toy) => toy._id !== id);
             setToys(updatedToys);
         }
