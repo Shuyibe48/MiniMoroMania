@@ -112,7 +112,6 @@ const AddToy = () => {
                     <div className='mb-4'>
                         <label className="block mb-2 text-[#ffc800] font-bold" htmlFor="dropdown">Toy Sub-category:</label>
                         <select onChange={(e) => setToySubcategory(e.target.value)} className='w-full p-2 rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100' id="dropdown">
-                            <option className='bg-black' value="">Select an option</option>
                             <option className='bg-black' value="Sports Car">Sports Car</option>
                             <option className='bg-black' value="Mini Fire Truck">Mini Fire Truck</option>
                             <option className='bg-black' value="Mini Police Car">Mini Police Car</option>

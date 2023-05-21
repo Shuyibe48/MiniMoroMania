@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const MyToy = () => {
     const [toys, setToys] = useState([])
@@ -12,14 +13,14 @@ const MyToy = () => {
     }, [])
 
     const handleDeleteToy = (id) => {
-        const proceed = window.confirm('Are you sure you want to delete this toy?') 
+        const proceed = window.confirm('Are you sure you want to delete this toy?')
         if (proceed) {
 
             fetch(`http://localhost:5000/toys/${id}`, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
-            .then(data => console.log(data))
+                .then(res => res.json())
+                .then(data => console.log(data))
 
             const updatedToys = toys.filter((toy) => toy._id !== id);
             setToys(updatedToys);
@@ -40,7 +41,11 @@ const MyToy = () => {
                     <p className="text-gray-500 font-semibold">Available Quantity: {toy.available_quantity}</p>
                     <p className="text-gray-500 font-semibold">Description: {toy.description}</p>
                     <div className="flex justify-end mt-4">
-                        <button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-semibold mr-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
+                        <Link to={`/updatetoys/${toy._id}`}>
+                            <button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-semibold mr-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                Update
+                            </button>
+                        </Link>
                         <button
                             className="px-4 py-2 font-semibold bg-red-500 text-white rounded"
                             onClick={() => handleDeleteToy(toy._id)}
