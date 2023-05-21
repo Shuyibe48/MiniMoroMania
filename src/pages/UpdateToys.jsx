@@ -12,7 +12,7 @@ const UpdateToys = () => {
 
         const updatedToy = { price, available_quantity, description }
 
-        fetch(`http://localhost:5000/toys/${_id}`, {
+        fetch(`https://mini-motor-mania-server.vercel.app/toys/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
