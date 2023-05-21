@@ -1,14 +1,31 @@
 import { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const UpdateToys = () => {
+    const { _id } = useLoaderData()
     const [price, setPrice] = useState('');
-    const [quantity, setQuantity] = useState('');
+    const [available_quantity, setQuantity] = useState('');
     const [description, setDescription] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Perform the update logic with the form data
-        console.log('Submitted:', { price, quantity, description });
+
+        const updatedToy = { price, available_quantity, description }
+
+        fetch(`http://localhost:5000/toys/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    window.alert('Updated successfully.')
+                }
+            })
+
     };
 
     return (
@@ -30,14 +47,13 @@ const UpdateToys = () => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="quantity" className="text-[#ffc800] mb-2 block text-sm font-bold">
+                        <label htmlFor="available_quantity" className="text-[#ffc800] mb-2 block text-sm font-bold">
                             Available Quantity
                         </label>
                         <input
                             placeholder='Update Quantity'
                             type="text"
-                            id="quantity"
-                            value={quantity}
+                            id="available_quantity"
                             onChange={(e) => setQuantity(e.target.value)}
                             className="w-full p-2 border rounded border border-[#ffc800] bg-transparent outline-none text-cyan-100"
                         />
