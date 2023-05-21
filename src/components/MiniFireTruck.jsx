@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const MiniFireTruck = () => {
-    const { toyData } = useContext(AuthContext)
+    const { toyData, user } = useContext(AuthContext)
 
     const miniFireTruck = toyData.filter(sp => sp.sub_category === 'Mini Fire Truck')
 
@@ -19,7 +19,9 @@ const MiniFireTruck = () => {
                             <p className="text-gray-300 font-bold mb-2">Price: ${toy.price}</p>
                             <p className="text-gray-300 font-bold mb-2">Rating: {toy.ratings}</p>
                             <Link to={`/toydetails/${toy._id}`}>
-                                <button className="px-4 py-2 bg-[#ffc800] font-bold text-black rounded">View Details</button>
+                                <button
+                                    onClick={() => !user && window.alert('You have to log in first to view details')}
+                                    className="px-4 py-2 bg-[#ffc800] font-bold text-black rounded">View Details</button>
                             </Link>
                         </div>
                     </div>

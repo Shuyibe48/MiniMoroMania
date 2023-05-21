@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     const [toyData, setToyData] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/toys')
+        fetch('https://mini-motor-mania-server.vercel.app/toys')
             .then(res => res.json())
             .then(data => setToyData(data))
     }, [])

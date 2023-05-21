@@ -10,7 +10,7 @@ const MyToy = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?email=${user.email}&ascending=${ascending}&descending=${descending}`)
+        fetch(`https://mini-motor-mania-server.vercel.app/toys?email=${user.email}&ascending=${ascending}&descending=${descending}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [ascending, descending])
@@ -19,7 +19,7 @@ const MyToy = () => {
         const proceed = window.confirm('Are you sure you want to delete this toy?')
         if (proceed) {
 
-            fetch(`http://localhost:5000/toys/${id}`, {
+            fetch(`https://mini-motor-mania-server.vercel.app/toys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

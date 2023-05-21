@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
+import AuthProvider from '../provider/AuthProvider';
 
 
 const AllToy = () => {
@@ -8,6 +9,7 @@ const AllToy = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(0)
     const { totalToys } = useLoaderData()
+    const { user } = useContext(AuthProvider)
 
     const itemsPerPage = 20
     const totalPage = Math.ceil(totalToys / itemsPerPage)
@@ -16,7 +18,7 @@ const AllToy = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(`http://localhost:5000/toys?page=${currentPage}&limit=${itemsPerPage}`)
+            const response = await fetch(`https://mini-motor-mania-server.vercel.app/toys?page=${currentPage}&limit=${itemsPerPage}`)
             const data = await response.json()
             setToyData(data);
         }
@@ -74,7 +76,9 @@ const AllToy = () => {
                                         <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">{toy.available_quantity}</td>
                                         <td className="border border-[#ffc800] text-cyan-100 px-4 py-2">
                                             <Link to={`/toydetails/${toy._id}`}>
-                                                <button className="px-4 py-2 bg-[#ffc800] text-black font-bold rounded-md">
+                                                <button
+                                                    onClick={() => !user && window.alert('You have to log in first to view details')}
+                                                    className="px-4 py-2 bg-[#ffc800] text-black font-bold rounded-md">
                                                     View Details
                                                 </button>
                                             </Link>
