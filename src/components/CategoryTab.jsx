@@ -7,7 +7,7 @@ import AllCar from './AllCar';
 
 const CategoryTab = () => (
   <div className='container mx-auto pb-28'>
-    <h1 className="text-6xl font-bold text-[#ffc800] text-center my-28">Shop by category</h1>
+    <h1 className="text-6xl font-bold text-[#ffc800] text-center my-28">Shop By Category</h1>
     <Tabs>
       <TabList>
         <Tab><button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">

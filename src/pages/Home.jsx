@@ -3,11 +3,18 @@ import Gallery from '../components/Gallery';
 import CategoryTab from '../components/CategoryTab';
 import ContactPage from '../components/ContactPage';
 import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Helmet } from 'react-helmet';
+import { useEffect } from 'react';
+import Sponsers from '../components/Sponsers';
 
 
 
 const Home = () => {
+
+    useEffect(() => {
+        AOS.init()
+    }, [])
 
     return (
         <>
@@ -15,8 +22,11 @@ const Home = () => {
                 <title>MiniMotorMania | Home</title>
             </Helmet>
             <Banner />
-            <Gallery />
+            <div data-aos='fade-up'>
+                <Gallery />
+            </div>
             <CategoryTab />
+            <Sponsers />
             <ContactPage />
         </>
     );
