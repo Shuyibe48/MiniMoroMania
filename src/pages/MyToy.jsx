@@ -5,13 +5,15 @@ import { Helmet } from 'react-helmet';
 
 const MyToy = () => {
     const [toys, setToys] = useState([])
+    const [ascending, setAscending] = useState(false)
+    const [descending, setDescending] = useState(false)
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?email=${user.email}`)
+        fetch(`http://localhost:5000/toys?email=${user.email}&ascending=${ascending}&descending=${descending}`)
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [])
+    }, [ascending, descending])
 
     const handleDeleteToy = (id) => {
         const proceed = window.confirm('Are you sure you want to delete this toy?')
@@ -34,6 +36,19 @@ const MyToy = () => {
                 <title>MiniMotorMania | My Toy</title>
             </Helmet>
             <h1 data-aos="fade-up" className="text-4xl font-bold text-[#ffc800] text-center my-12">My Toy</h1>
+
+            <div className='text-right mb-4 mr-4'>
+                <div>
+                    <button className='bg-[#ffc800] mr-2 hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' onClick={() => {
+                        setAscending(true)
+                        setDescending(false)
+                    }}>Ascending</button>
+                    <button className='bg-[#ffc800] hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' onClick={() => {
+                        setDescending(true)
+                        setAscending(false)
+                    }}>Descending</button>
+                </div>
+            </div>
 
             {toys.map((toy) => (
                 <div key={toy._id} className="bg-white p-4 rounded shadow mb-4">
