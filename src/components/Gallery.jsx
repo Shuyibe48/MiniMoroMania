@@ -1,7 +1,15 @@
+import Aos from "aos";
+import { useEffect } from "react";
+
 const Gallery = () => {
+
+  useEffect(() => {
+    Aos.init();
+  }, [])
+
   return (
     <div className="pt-">
-      <h1 className="text-6xl font-bold text-[#ffc800] text-center my-28">Toy Gallery</h1>
+      <h1 data-aos="fade-up" className="text-6xl font-bold text-[#ffc800] text-center my-28">Toy Gallery</h1>
       <div className="container mx-auto grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         <div className="col-span-2 row-span-2">
           <div className="relative">

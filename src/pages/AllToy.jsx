@@ -1,11 +1,26 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../provider/AuthProvider';
+import { useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 const AllToy = () => {
-    const {toyData} = useContext(AuthContext)
+    const [toyData, setToyData] = useState([])
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(0)
+    const { totalToys } = useLoaderData()
+
+    const itemsPerPage = 20
+    const totalPage = Math.ceil(totalToys / itemsPerPage)
+
+    const pageNumbers = [...Array(totalPage).keys()]
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(`http://localhost:5000/toys?page=${currentPage}&limit=${itemsPerPage}`)
+            const data = await response.json()
+            setToyData(data);
+        }
+        fetchData()
+    }, [currentPage, itemsPerPage])
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
@@ -13,13 +28,13 @@ const AllToy = () => {
 
     const filteredToys = toyData.filter((toy) =>
         toy.
-        toy_name
-        .toLowerCase().includes(searchTerm.toLowerCase())
+            toy_name
+            .toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
-        <div className='form-bg'>
-            <div className="container mx-auto px-4 py-36">
+        <div className='form-bg py-12'>
+            <div className="container mx-auto px-4 py-12">
                 <div className="mb-4">
                     <input
                         type="text"
@@ -63,6 +78,16 @@ const AllToy = () => {
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className='text-center'>
+                {
+                    pageNumbers.map(number => <button
+                        className={`p-2 text-black font-bold border border-black rounded ${currentPage === number ? 'bg-[#8b6b05]' : 'bg-[#ffc800]'}`}
+                        key={number}
+                        onClick={() => setCurrentPage(number)}
+                    >
+                        {number}</button>)
+                }
             </div>
         </div>
     );
