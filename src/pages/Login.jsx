@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 
 const Login = () => {
-  const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
+  const { signIn, signInWithGoogle } = useContext(AuthContext)
   const [errorMessage, setErrorMessage] = useState('')
 
   const navigate = useNavigate()
@@ -37,6 +38,9 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center form-bg justify-center h-screen">
+      <Helmet>
+        <title>MiniMotorMania | Login</title>
+      </Helmet>
       <div className="bg-gradient-to-r from-[#000000cb] to-[#00000048] rounded-lg shadow-lg p-8 lg:w-3/6 w-80">
         <h2 className="text-3xl font-bold mb-6 text-[#ffc800]">Login</h2>
         <span className='text-red-500 font-bold'>{errorMessage}</span>
@@ -86,11 +90,6 @@ const Login = () => {
           <div onClick={signInWithGoogle}>
             <button onClick={redirectHomePage} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Google
-            </button>
-          </div>
-          <div onClick={signInWithGithub}>
-            <button onClick={redirectHomePage} className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              GitHub
             </button>
           </div>
         </div>

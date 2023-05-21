@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const AddToy = () => {
     const { user } = useContext(AuthContext)
@@ -50,7 +51,7 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.acknowledged){
+                if (data.acknowledged) {
                     window.alert('A toy has added successfully')
                 }
             })
@@ -58,6 +59,9 @@ const AddToy = () => {
 
     return (
         <div className='form-bg py-12'>
+            <Helmet>
+                <title>MiniMotorMania | Add A Toy</title>
+            </Helmet>
             <div className="max-w-lg mx-auto p-4">
                 <h2 className="text-4xl font-bold mb-6 text-[#ffc800]">Add A Toy</h2>
                 <form onSubmit={handleFormSubmit}>

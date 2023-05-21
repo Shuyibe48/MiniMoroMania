@@ -1,31 +1,36 @@
+import { Helmet } from "react-helmet";
+
 const Blog = () => {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 lg:p-10 blogs">
-      <h2 className="text-4xl font-bold mb-8 text-center">Blog</h2>
-      <div className="mb-6 md:mb-8 lg:mb-10">
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">Tell us the differences between uncontrolled and controlled components.</h2>
-        <p className="text-base md:text-lg lg:text-xl text-gray-500">In React, there are two types of form components: controlled and uncontrolled.
-          <br />
-          <span className='font-bold'>1. Uncontrolled components: </span>
-          Uncontrolled components are traditional HTML form elements like input, textarea, and select. These components store their own state internally and the state can only be accessed using a DOM API such as getElementById or querySelector. When an uncontrolled component is mounted, its state is initialized to the default value specified in the value or defaultValue attribute.
-          <br />
-          <span className='font-bold'>2. Controlled components: </span>
-          Controlled components are React components that store their state in the parent component's state. This means that the state is passed to the child component via props, and any changes to the state are made through callbacks passed from the parent component. When a controlled component is mounted, its state is initialized to the value passed in the parent component's state.
-        </p>
+    <>
+      <Helmet>
+        <title>MiniMotorMania | Blog</title>
+      </Helmet>
+      <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 lg:p-10 blogs">
+      <h1 data-aos="fade-up" className="text-4xl font-bold text-[#ffc800] text-center my-12">Blog</h1>
+            
+        <div className="mb-6 md:mb-8 lg:mb-10">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">What is an access token and refresh token? How do they work and where should we store them on the client-side?</h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-500">
+            An access token is a credential that grants access to protected resources in an application. It is typically issued after authentication and has a limited lifespan. Refresh tokens, on the other hand, are long-lived tokens that can be used to obtain new access tokens once the original token expires. Access tokens are usually stored on the client-side, either in memory or short-lived storage, while refresh tokens should be stored securely and confidentially, such as in an HTTP-only cookie or encrypted storage. This separation helps mitigate the risk of exposing sensitive access credentials and enhances the overall security of the application.
+          </p>
+        </div>
+        <div className="mb-6 md:mb-8 lg:mb-10">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">Compare SQL and NoSQL databases?</h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-500">SQL and NoSQL databases differ in their data models and storage paradigms. SQL databases, such as MySQL or PostgreSQL, use a structured schema and predefined tables with a fixed schema to store data. They provide ACID (Atomicity, Consistency, Isolation, Durability) guarantees and are suitable for complex relationships and transactions. NoSQL databases, like MongoDB or Redis, offer a flexible schema or schema-less approach, allowing for dynamic and unstructured data. They prioritize scalability and performance over strict consistency, making them ideal for handling large amounts of data and distributed systems. NoSQL databases excel in scenarios where high availability, horizontal scaling, and rapid development are essential.</p>
+        </div>
+        <div className="mb-6 md:mb-8 lg:mb-10">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">What is express js? What is Nest JS? same</h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-500">Express.js is a minimalistic and flexible web application framework for Node.js. It provides a simple and intuitive way to build web applications and APIs by offering a set of robust features and middleware. Express.js allows developers to handle routes, HTTP requests, and responses easily, manage sessions, handle cookies, and integrate with various templating engines. It is widely used in the Node.js ecosystem for building server-side applications.
+            <br />
+            NestJS is a progressive, TypeScript-based web framework for building scalable and efficient server-side applications. It is built on top of Express.js and utilizes modern JavaScript features and design patterns. NestJS follows the modular architecture principle, providing a powerful dependency injection system, decorators, and TypeScript support. It is known for its scalability, extensibility, and developer-friendly approach. NestJS offers features like built-in support for async functions, validation, authentication, and database integration, making it suitable for building complex and robust applications.</p>
+        </div>
+        <div>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">What is MongoDB aggregate and how does it work?</h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-500">MongoDB's aggregate is a powerful data processing pipeline used for advanced querying and data manipulation in MongoDB. It allows users to perform complex data aggregation tasks and perform computations on collections of documents. The aggregate pipeline consists of multiple stages, such as filtering, sorting, grouping, transforming, and calculating aggregate values. Each stage operates on the input documents and passes the results to the next stage. Users can use various operators and expressions to define the pipeline stages and perform operations like filtering, grouping, counting, summing, averaging, and more. The aggregate pipeline enables flexible and efficient data aggregation and analysis in MongoDB.</p>
+        </div>
       </div>
-      <div className="mb-6 md:mb-8 lg:mb-10">
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">How to validate React props using PropTypes?</h2>
-        <p className="text-base md:text-lg lg:text-xl text-gray-500">React's built-in feature, PropTypes, validates the type and shape of props that a component expects to receive. It's imported from the 'prop-types' package and used to define the PropTypes for each prop. PropTypes API specifies the expected type and shape of each prop to catch errors early in the development process.</p>
-      </div>
-      <div className="mb-6 md:mb-8 lg:mb-10">
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">Tell us the difference between node js and express js.</h2>
-        <p className="text-base md:text-lg lg:text-xl text-gray-500">Node.js is a runtime environment that allows JavaScript to run outside the browser, while Express.js is a web framework built on top of Node.js. Node.js provides the core functionality for building server-side applications, while Express.js simplifies the process of building web applications by providing a range of features and utilities.</p>
-      </div>
-      <div>
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 lg:mb-6">What is a custom hook, and why will you create a custom hook?</h2>
-        <p className="text-base md:text-lg lg:text-xl text-gray-500">In React, a custom hook is a reusable function that encapsulates and shares stateful logic between multiple components. Custom hooks can be created to extract and reuse common logic such as data fetching, managing form state, or performing complex calculations. By creating a custom hook, you can simplify the code in your components, make your code more modular and reusable, and reduce code duplication. Custom hooks can be used to abstract away complex or repetitive tasks, making your code more readable and maintainable. Overall, custom hooks provide a powerful tool for creating scalable and reusable React applications.</p>
-      </div>
-    </div>
+    </>
   );
 };
 

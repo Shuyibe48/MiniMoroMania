@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const MyToy = () => {
     const [toys, setToys] = useState([])
@@ -29,6 +30,11 @@ const MyToy = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>MiniMotorMania | My Toy</title>
+            </Helmet>
+            <h1 data-aos="fade-up" className="text-4xl font-bold text-[#ffc800] text-center my-12">My Toy</h1>
+
             {toys.map((toy) => (
                 <div key={toy._id} className="bg-white p-4 rounded shadow mb-4">
                     <img className='w-36' src={toy.toy_image} alt="" />

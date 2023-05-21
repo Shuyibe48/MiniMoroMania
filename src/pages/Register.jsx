@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext)
@@ -38,6 +39,9 @@ const Register = () => {
 
   return (
     <div className="form-bg py-36">
+      <Helmet>
+        <title>MiniMotorMania | Register</title>
+      </Helmet>
       <div className="md:w-full lg:w-3/6 mx-auto">
         <form onSubmit={handleSubmit} className="bg-gradient-to-r from-[#000000cb] to-[#00000048] shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <h2 className="text-2xl text-[#ffc800] font-bold text-center mb-4">Register</h2>
