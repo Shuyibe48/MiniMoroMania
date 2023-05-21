@@ -5,7 +5,7 @@ import Home from "../pages/Home";
 import Blog from "../pages/Blog";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import ContactPage from "../pages/ContactPage";
+import ContactPage from "../components/ContactPage";
 import AllToy from "../pages/AllToy";
 import MyToy from "../pages/MyToy";
 import AddToy from "../pages/AddToy";
@@ -57,10 +57,6 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register />
-            },
-            {
-                path: 'contact',
-                element: <ContactPage />
             }
         ]
     },

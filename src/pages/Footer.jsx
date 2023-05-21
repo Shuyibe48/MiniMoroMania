@@ -51,7 +51,7 @@ const Footer = () => {
       </div>
       <div className="bg-yellow-400 py-4">
         <div className="container mx-auto text-center">
-          <p className="text-white">
+          <p className="text-black">
             &copy; {new Date().getFullYear()} MiniMotorMania. All rights reserved.
           </p>
         </div>

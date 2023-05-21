@@ -26,21 +26,21 @@ const ContactForm = () => {
 
     return (
         <form className="p-4 mx-auto max-w-md" onSubmit={handleSubmit}>
-            <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+            <h2 className="text-2xl font-bold mb-4 text-[#ffc800]">Contact Us</h2>
             <div className="mb-4">
-                <label className="block font-bold mb-2" htmlFor="name">Name</label>
-                <input className="w-full border border-gray-300 p-2 rounded-md" type="text" id="name" value={name} onChange={handleNameChange} required />
+                <label className="block font-bold mb-2 text-[#ffc800]" htmlFor="name">Name</label>
+                <input className="shadow border border-[#ffc800] bg-transparent appearance-none border rounded w-full py-2 px-3 text-cyan-100 leading-tight focus:outline-none focus:shadow-outline" type="text" id="name" value={name} onChange={handleNameChange} required />
             </div>
             <div className="mb-4">
-                <label className="block font-bold mb-2" htmlFor="email">Email</label>
-                <input className="w-full border border-gray-300 p-2 rounded-md" type="email" id="email" value={email} onChange={handleEmailChange} required />
+                <label className="block font-bold mb-2 text-[#ffc800]" htmlFor="email">Email</label>
+                <input className="shadow border border-[#ffc800] bg-transparent appearance-none border rounded w-full py-2 px-3 text-cyan-100 leading-tight focus:outline-none focus:shadow-outline" type="email" id="email" value={email} onChange={handleEmailChange} required />
             </div>
             <div className="mb-4">
-                <label className="block font-bold mb-2" htmlFor="message">Message</label>
-                <textarea className="w-full border border-gray-300 p-2 rounded-md" id="message" value={message} onChange={handleMessageChange} required></textarea>
+                <label className="block font-bold mb-2 text-[#ffc800]" htmlFor="message">Message</label>
+                <textarea className="shadow border border-[#ffc800] bg-transparent appearance-none border rounded w-full py-2 px-3 text-cyan-100 leading-tight focus:outline-none focus:shadow-outline" id="message" value={message} onChange={handleMessageChange} required></textarea>
             </div>
             <div className="text-center">
-                <button className="bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-500" type="submit">Submit</button>
+                <button className="bg-[#ffc800] hover:bg-[#8b6b05] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
             </div>
         </form>
     );
